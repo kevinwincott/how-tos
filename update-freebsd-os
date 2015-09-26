@@ -1,0 +1,12 @@
+freebsd-update fetch
+freebsd-update install
+
+
+to update dists
+
+freebsd-update upgrade -r 8.3-RELEASE
+freebsd-update install
+
+
+add this to crontob to check for updates nightly
+@daily                                  root    freebsd-update cron
