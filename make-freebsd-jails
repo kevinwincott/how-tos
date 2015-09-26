@@ -1,0 +1,28 @@
+How I built the jails
+
+mkdir /usr/jails/jailname
+cd path/to/newjail
+fetch ftp://ftp.freebsd.org/pub/FreeBSD/releases/i386/9.0-RELEASE/base.txz
+tar Jxpf base.txz
+rm -rf boot
+rm -rf base.txz
+
+edit /etc/rc.conf
+add alias to interface
+add name to jail_list
+copy jail specific config
+
+start jail with
+
+/etc/rc.d/jail start dnsfilter2
+
+login to the server with: jail /usr/jails/dnsfilter2 shell 213.48.214.32 /bin/sh and add a user and root password
+
+restart routing
+
+cp rc.conf to new jail
+cp resolv.conf to new jail
+
+mount ports with mkdir /usr/jails/dnsfilter3/usr/ports and  mount_nullfs /usr/ports /usr/jails/dnsfilter3/usr/ports
+
+/etc/rc.d/jail restart 
